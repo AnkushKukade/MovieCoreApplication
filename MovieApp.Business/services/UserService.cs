@@ -6,20 +6,20 @@ using System.Text;
 
 namespace MovieApp.Business.services
 {
-    public class UserInfoService
+    public class UserService
     {
-        private IUser user;
-        public UserInfoService(IUser user)
+         IUser _iuser;
+        public UserService(IUser iuser)
         {
-            this.user = user;
+           _iuser = iuser;
         }
-        public void Register(UserModel userModel)
+        public string Register(UserModel userModel)
         {
-            this.user.Register(userModel);
+           return _iuser.Register(userModel);
         }
         public UserModel Login(UserModel userModel)
         {
-            return this.user.Login(userModel);
+            return _iuser.Login(userModel);
         }
     }
 }

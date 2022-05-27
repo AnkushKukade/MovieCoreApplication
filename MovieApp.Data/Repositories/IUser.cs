@@ -7,7 +7,7 @@ namespace MovieApp.Data.Repositories
 {
     public interface IUser
     {
-        void Register(UserModel userModel);
-        UserModel Login(UserModel user);
+        string Register(UserModel userModel);
+        UserModel Login(UserModel userModel);
     }
 }

@@ -35,7 +35,7 @@ namespace MovieAPI
             services.AddTransient<IMovie, Movie>();
             services.AddTransient<IUser, User>();
             services.AddTransient<MovieService, MovieService>();
-            services.AddTransient<UserInfoService, UserInfoService>();
+            services.AddTransient<UserService, UserService>();
 
             services.AddSwaggerGen(c =>
             {

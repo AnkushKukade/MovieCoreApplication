@@ -9,7 +9,7 @@ namespace MovieApp.Data.Repositories
 {
     public class User : IUser
     {
-        private MovieDbContext _movieDbContext;
+         MovieDbContext _movieDbContext;
         public User(MovieDbContext movieDbContext)
         {
             _movieDbContext = movieDbContext;
@@ -25,10 +25,13 @@ namespace MovieApp.Data.Repositories
             return userModel;
         }
 
-        public void Register(UserModel userModel)
+        public string Register(UserModel userModel)
         {
+            string message = "";
             _movieDbContext.userModel.Add(userModel);
             _movieDbContext.SaveChanges();
+            message = "Record inserted Successfully!!";
+            return message;
         }
     }
 }

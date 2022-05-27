@@ -13,21 +13,21 @@ namespace MovieAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-         UserInfoService _userInfoService;
-        public UserController(UserInfoService user)
+         UserService _userService;
+        public UserController(UserService userService)
         {
-            _userInfoService = user;
+            _userService = userService;
         }
         [HttpPost("Register")]
         public IActionResult Register(UserModel userModel)
         {
-            _userInfoService.Register(userModel);
+            _userService.Register(userModel);
             return Ok("Register Successfully !!");
         }
         [HttpPost("Login")]
         public IActionResult Login(UserModel userModel)
         {
-            UserModel user = _userInfoService.Login(userModel);
+            UserModel user = _userService.Login(userModel);
             if (user != null)
                 return Ok("Login Success!!");
             else
