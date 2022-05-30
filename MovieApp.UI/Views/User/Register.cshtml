@@ -4,6 +4,10 @@
 
 @model MovieApp.Entity.UserModel
 
+@{ 
+    ViewData["Title"] = "Register";
+}
+<h2>Welcome to Register Page</h2>
 <form method="post">
     <div class="form-group">
         <label for="Firstname">Firstname</label>
@@ -25,14 +29,16 @@
         <label for="Firstname">Mobile</label>
         <input type="text" class="form-control" asp-for="Mobile"/>
     </div>
+    <button type="submit" class="btn btn-primary" value="Register">Register</button>
+    <button type="reset" class="btn btn-secondary">Clear Form</button>
     <hr />
-    @if (ViewBag.status == "Ok")
+    @if (ViewBag.status == "Success")
      {
                 <div class="alert alert-success">
                     @ViewBag.message
                 </div>
      }
-    else if (ViewBag.status == "Error")
+    else  
     {
         <div class="alert alert-danger">
             @ViewBag.message

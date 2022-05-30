@@ -17,4 +17,8 @@
     <ProjectReference Include="..\MovieApp.Entity\MovieApp.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

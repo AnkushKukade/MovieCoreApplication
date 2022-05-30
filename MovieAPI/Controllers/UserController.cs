@@ -27,11 +27,10 @@ namespace MovieAPI.Controllers
         [HttpPost("Login")]
         public IActionResult Login(UserModel userModel)
         {
-            UserModel user = _userService.Login(userModel);
-            if (user != null)
-                return Ok("Login Success!!");
-            else
-                return NotFound();
+             _userService.Login(userModel);
+         
+            return Ok("Login Success!!");
+          
         }
     }
 }

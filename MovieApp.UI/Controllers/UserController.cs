@@ -13,7 +13,7 @@ namespace MovieApp.UI.Controllers
 {
     public class UserController : Controller
     {
-        private IConfiguration _configuration;
+         IConfiguration _configuration;
         public UserController(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -22,7 +22,7 @@ namespace MovieApp.UI.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult Register()
         {
             return View();

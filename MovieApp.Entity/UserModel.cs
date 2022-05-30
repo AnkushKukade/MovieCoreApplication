@@ -7,7 +7,12 @@ using System.Text;
 namespace MovieApp.Entity
 {
     public class UserModel
+
     {
+        public UserModel()
+        {
+
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }

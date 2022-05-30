@@ -9,7 +9,7 @@ using MovieApp.Data.DataConnection;
 namespace MovieApp.Data.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20220524095807_migrationname")]
+    [Migration("20220527101102_migrationname")]
     partial class migrationname
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
