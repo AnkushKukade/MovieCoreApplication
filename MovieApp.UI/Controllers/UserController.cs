@@ -30,7 +30,6 @@ namespace MovieApp.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserModel userModel)
         {
-            ViewBag.status = "";
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(userModel), Encoding.UTF8, "application/json");
@@ -39,8 +38,8 @@ namespace MovieApp.UI.Controllers
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        ViewBag.status = "Ok";
-                        ViewBag.message = "Register successfully!";
+                        ViewBag.status = "Success";
+                        ViewBag.message = "Registered!";
                     }
                     else
                     {
@@ -49,6 +48,7 @@ namespace MovieApp.UI.Controllers
                     }
                 }
             }
+            //StatusCode : 200,201,404,500
             return View();
 
         }
