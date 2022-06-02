@@ -7,7 +7,7 @@ using MovieApp.Data.Repositories;
 
 namespace MovieApp.Data.DataConnection
 {
-    public class MovieDbContext:DbContext
+    public class MovieDbContext: DbContext  // acting as database
     {
         public MovieDbContext(DbContextOptions<MovieDbContext> options):base(options)
         {
@@ -16,5 +16,7 @@ namespace MovieApp.Data.DataConnection
         public DbSet<MovieModel> movieModel { get; set; }
       
         public DbSet<UserModel> userModel { get; set; }
+        public DbSet<TheatreModel> theatreModel { get; set; }
+        public DbSet<MovieShowTimeModel> movieShowTimeModel { get; set; }
     }
 }

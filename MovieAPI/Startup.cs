@@ -29,20 +29,15 @@ namespace MovieAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionStr = Configuration.GetConnectionString("sqlConnection");
-            services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(connectionStr));
-            services.AddControllers();
-            services.AddTransient<IMovie, Movie>();
+            string sqlConnection = Configuration.GetConnectionString("SqlConnection");
+            services.AddDbContext<MovieDbContext>(optoins => optoins.UseSqlServer(sqlConnection));
             services.AddTransient<IUser, User>();
-            services.AddTransient<MovieService, MovieService>();
             services.AddTransient<UserService, UserService>();
+            services.AddTransient<IMovieShowTime, MovieShowTime>();
+            services.AddTransient<MovieShowTimeService, MovieShowTimeService>();
+            services.AddControllers();
+            services.AddSwaggerGen();// 
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-            });
-
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,10 +49,11 @@ namespace MovieAPI
             }
 
             app.UseRouting();
+
             app.UseSwagger();
-            app.UseSwaggerUI(options =>
+            app.UseSwaggerUI(c =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "MyMovieApplication");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyMovieAPI");
             });
 
             app.UseAuthorization();

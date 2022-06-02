@@ -9,4 +9,8 @@
     <ProjectReference Include="..\MovieApp.Entity\MovieApp.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\MovieShowTime\" />
+  </ItemGroup>
+
 </Project>

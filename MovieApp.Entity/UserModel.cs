@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations; //Model validation
+using System.ComponentModel.DataAnnotations.Schema; //Sql const
 using System.Text;
 
 namespace MovieApp.Entity
 {
     public class UserModel
 
-    {
-        public UserModel()
-        {
-
-        }
-        [Key]
+    { 
+        [Key]  // primary key 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
+        public int UserId { get; set; } //property
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }

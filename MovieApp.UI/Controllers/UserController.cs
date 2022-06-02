@@ -18,16 +18,10 @@ namespace MovieApp.UI.Controllers
         {
             _configuration = configuration;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> ShowUserDetails()
         {
-            return View();
+
         }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
         public async Task<IActionResult> Register(UserModel userModel)
         {
             using (HttpClient client = new HttpClient())

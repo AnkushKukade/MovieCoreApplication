@@ -9,5 +9,9 @@ namespace MovieApp.Data.Repositories
     {
         string Register(UserModel userModel);
         UserModel Login(UserModel userModel);
+        string Update(UserModel userModel);
+        string Delete(int userId);
+        object SelectUsers();
+        object SelectUserById(int userId);
     }
 }
