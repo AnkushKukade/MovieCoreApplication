@@ -12,5 +12,6 @@ namespace MovieApp.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TheatreId { get; set; }
         public string TheatreName { get; set; }
+        public string TheatreLocation { get; set; }
     }
 }

@@ -13,16 +13,37 @@ namespace MovieAPI.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        MovieService _movieServices;
+        MovieService _movieService;
 
-        public MovieController(MovieService movieServices)
+        public MovieController(MovieService movieService)
         {
-            _movieServices = movieServices;
+            _movieService = movieService;
+        }
+        [HttpGet("SelectMovie")]
+        public IActionResult SelectMovie()
+        {
+            return Ok(_movieService.SelectMovies());
+        }
+        [HttpGet("GetSpecificMovie")]
+        public IActionResult GetSpecificMovie(int id)
+        {
+            return Ok(_movieService.GetSpecificMovie(id));
         }
         [HttpPost("AddMovie")]
         public IActionResult AddMovie(MovieModel movieModel)
         {
-            return Ok(_movieServices.AddMovie(movieModel));
+            return Ok(_movieService.AddMovie(movieModel));
         }
+        [HttpPut("UpdateMovie")]
+        public IActionResult UpdateMovie([FromBody] MovieModel movieModel)
+        {
+            return Ok(_movieService.UpdateMovie(movieModel));
+        }
+        [HttpDelete("DeleteMovie")]
+        public IActionResult DeleteMovie(int MovieId)
+        {
+            return Ok(_movieService.DeleteMovie(MovieId));
+        }
+
     }
 }

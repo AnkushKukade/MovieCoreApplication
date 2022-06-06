@@ -31,6 +31,7 @@ namespace MovieApp.UI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // .AddRazorRuntimeCompilation(); 
             }
             else
             {

@@ -11,7 +11,9 @@ namespace MovieApp.Entity
         
         public int MovieId { get; set; }
         public string MovieName { get; set; }
-       
-        
+        public string MovieLanguage { get; set; }
+        public string MovieDescription { get; set; }
+
     }
 }
+ 

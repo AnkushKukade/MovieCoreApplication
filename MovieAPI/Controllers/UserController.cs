@@ -13,8 +13,6 @@ namespace MovieAPI.Controllers
     [ApiController] //HTTPGET,HTTPPUT,HTTPPOST - req json response
     public class UserController : ControllerBase
     {
-        public class UserController : ControllerBase
-        {
             UserService _userService;
             public UserController(UserService userService)
             {
@@ -50,6 +48,6 @@ namespace MovieAPI.Controllers
             {
                 return Ok(_userService.SelectUserById(userId));
             }
-        }
+        
     }
 }

@@ -18,5 +18,8 @@ namespace MovieApp.Data.DataConnection
         public DbSet<UserModel> userModel { get; set; }
         public DbSet<TheatreModel> theatreModel { get; set; }
         public DbSet<MovieShowTimeModel> movieShowTimeModel { get; set; }
+        public DbSet<BookingModel> bookingModel { get; set; }
     }
+
+    //Dbset  =table name (UserModel)
 }

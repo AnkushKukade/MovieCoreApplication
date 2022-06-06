@@ -6,23 +6,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieApp.Entity
 {
-    public class MovieShowTimeModel
+    public class BookingModel
     {
-        //create table MovieShowTime(ShowId int,MovieId int references MovieModel(MovieId))
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ShowId { get; set; }
+        public int BookId { get; set; }
+
+        [ForeignKey("userModel")]
+        public int UId { get; set; }
+        public UserModel userModel { get; set; }
 
         [ForeignKey("movieModel")]
-        public int MovieId { get; set; }
+        public int MId { get; set; }
         public MovieModel movieModel { get; set; }
 
         [ForeignKey("theatreModel")]
-        public int TheatreId { get; set; }
+        public int TId { get; set; }
         public TheatreModel theatreModel { get; set; }
 
-        public string ShowTime { get; set; }
         public string Date { get; set; }
+
+        public string ShowTime { get; set; }
+
+
+        public int Seats { get; set; }
 
     }
 }

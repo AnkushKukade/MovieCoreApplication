@@ -17,6 +17,7 @@ namespace MovieApp.Business.services
         {
            return _iuser.Register(userModel);
         }
+
         public object Login(UserModel userModel)
         {
             return _iuser.Login(userModel);

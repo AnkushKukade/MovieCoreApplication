@@ -8,16 +8,41 @@ namespace MovieApp.Business.services
 {
     public class MovieService
     {
-        IMovie movie;
-        public MovieService(IMovie movie)
+        IMovie _iMovie;
+        public MovieService(IMovie imovie)
         {
-            this.movie = movie;
+            _iMovie = imovie;
         }
 
-        // add movie 
         public string AddMovie(MovieModel movieModel)
         {
-            return movie.AddMovie(movieModel);
+            return _iMovie.AddMovie(movieModel);
+        }
+
+        public List<MovieModel> SelectMovies()
+        {
+            return _iMovie.SelectMovies();
+        }
+
+        public string UpdateMovie(MovieModel movieModel)
+        {
+            return _iMovie.UpdateMovie(movieModel);
+        }
+
+        /*public string UpdateMovieDetails(MovieModel movieModel)
+        {
+            return _iMovie.UpdateMovieDetails(movieModel);
+        }*/
+
+        public string DeleteMovie(int MovieId)
+        {
+            return _iMovie.DeleteMovie(MovieId);
+        }
+
+
+        public MovieModel GetSpecificMovie(int id)
+        {
+            return (_iMovie.GetSpecificMovie(id));
         }
     }
 }
