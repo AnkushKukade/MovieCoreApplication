@@ -1,5 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<MovieApp.Entity.TheatreModel>
 @{
+    ViewData["Title"] = "ShowTheatreDetails";
 }
+
+<h1>ShowTheatreDetails</h1>
+<hr />
+
+<h1>Theatre table</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>TheatreId</th>
+            <th>TheatreName</th>
+            
+            <th>TheatreLocation</th>
+           
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TheatreId</td>
+                <td>@item.TheatreName</td>
+               
+                <td>@item.TheatreLocation</td>
+               
+                <td><a asp-action="UpdateTheatreDetails" asp-controller="Theatre" asp-route-tId="@item.TheatreId">Update</a></td>
+                <td><a asp-action="DeleteTheatreDetails" asp-controller="Theatre" asp-route-tId="@item.TheatreId">Delete</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="RegisterTheatre" asp-controller="Movie">Add-New-Theatre</a>
+</div>

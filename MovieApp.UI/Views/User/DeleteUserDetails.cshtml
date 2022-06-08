@@ -1,35 +1,56 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model MovieApp.Entity.UserModel
+﻿@model MovieApp.Entity.UserModel
+@{
+    ViewData["Title"] = "DeleteUserDetails";
+}
 
-<h2>Login</h2>
-<hr/>
-<h2>Ankush</h2>
-<form method="post">
-    <div class="form-group">
-        <label for="Firstname">Email</label>
-        <input type="text" class="form-control" asp-for="Email" />
-    </div>
-    <div class="form-group">
-        <label for="Firstname">Password</label>
-        <input type="text" class="form-control" asp-for="Password" />
-    </div>
-    <input type="submit" class="btn btn-primary" value="Login" />
-    <button type="button" class="btn btn-secondary">Reset</button>
-    <hr />
-    @if (ViewBag.status == "Ok")
-     {
-        <div class="alert alert-success">
-            @ViewBag.message
+
+<a asp-action="ShowUserDetails" asp-controller="User">User-Details</a>
+<hr />
+<h1>DeleteUserDetails</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="Firstname">UserId</label>
+            <input type="text" class="form-control" asp-for="UserId" disabled="disabled">
         </div>
-     }
-    else 
-    {
-        <div class="alert alert-danger">
-            @ViewBag.message
+        <div class="form-group">
+            <label for="Firstname">Firstname</label>
+            <input type="text" class="form-control" asp-for="Firstname" disabled="disabled">
         </div>
-    }
-    <hr />
-    <a asp-controller="User" asp-action="Register">Register</a>
-</form>
+        <div class="form-group">
+            <label for="Firstname">Lastname</label>
+            <input type="text" class="form-control" asp-for="Lastname" disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="Firstname">Email</label>
+            <input type="text" class="form-control" asp-for="Email" disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="Firstname">Password</label>
+            <input type="text" class="form-control" asp-for="Password" disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label for="Firstname">Mobile</label>
+            <input type="text" class="form-control" asp-for="Mobile" disabled="disabled">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Confirm-Delete">
+        <a asp-action="ShowUserDetails" asp-controller="User" class="btn btn-sm btn-danger">Back</a>
+        <div>
+            @if (ViewBag.status == "Success")
+            {
+                <div class="alert alert-success">
+                    @ViewBag.message
+                </div>
+            }
+            else if (ViewBag.status == "Error")
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.message
+                </div>
+            }
+        </div>
+        <hr />
+
+    </form>
+</div>

@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MovieApp.Entity.TheatreModel
 @{
+    ViewData["Title"] = "Register";
 }
+
+<h1>Add-Theatre-Data</h1>
+<hr />
+
+<form method="post">
+    <div class="form-group">
+        <label>Theatre-Name</label>
+        <input type="text" class="form-control" asp-for="TheatreName" />
+    </div>
+    
+   
+    <div class="form-group">
+        <label>Theatre-Location</label>
+        <input type="text" class="form-control" asp-for="TheatreLocation" />
+    </div>
+   
+    <input type="submit" value="Add-Details" class="btn btn-primary" />
+    <input type="button" value="Reset" class="btn btn-secondary" />
+    <hr />
+    @if (ViewBag.status == "Success")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message
+        </div>
+    }
+</form>
